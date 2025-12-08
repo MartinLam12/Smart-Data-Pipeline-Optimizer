@@ -115,22 +115,28 @@ class BinarySearchTree:
     
     def inorder_traversal(self, node):
         results = []
-        #base case
+        # Base case: empty subtree returns an empty list
         if node is None:
             return results
-        results.extend(self.inorder_traversal(node.left))   
-        results.append(node)                       
-        results.extend(self.inorder_traversal(node.right))  
+        # Visit left subtree first
+        results.extend(self.inorder_traversal(node.left))
+        # Then visit the current node
+        results.append(node)
+        # Finally visit right subtree
+        results.extend(self.inorder_traversal(node.right))
         return results
     
     def preorder_traversal(self, node):
         results = []
-        #base case
+        # Base case: empty subtree returns an empty list
         if node is None:
             return results
-        results.append(node) 
-        results.extend(self.preorder_traversal(node.left))                        
-        results.extend(self.preorder_traversal(node.right))  
+        # Visit the current node first
+        results.append(node)
+        # Then traverse the left subtree
+        results.extend(self.preorder_traversal(node.left))
+        # Then traverse the right subtree
+        results.extend(self.preorder_traversal(node.right))
         return results
     
     def postorder_traversal(self, node):
@@ -138,9 +144,12 @@ class BinarySearchTree:
         #base case
         if node is None:
             return results
-        results.extend(self.postorder_traversal(node.left))                        
-        results.extend(self.postorder_traversal(node.right)) 
-        results.append(node) 
+        # Visit left subtree first
+        results.extend(self.postorder_traversal(node.left))
+        # Then visit right subtree
+        results.extend(self.postorder_traversal(node.right))
+        # Finally visit the current node
+        results.append(node)
         return results
     
 
